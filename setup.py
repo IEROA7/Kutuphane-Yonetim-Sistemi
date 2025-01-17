@@ -5,10 +5,14 @@ import asyncio
 import threading
 import os
 from dotenv import load_dotenv
+from auth import Auth
+from gui import admin_mail
 
 load_dotenv()
 
 mongo_uri = os.getenv("MONGO_URI")
+admin_password = os.getenv("ADMIN_PASSWORD")
+
 
 def run_setup():
     """
@@ -59,6 +63,12 @@ def background_checker(users, books):
         date_system.check_users(users, books)
         date_system.remind_user(users, books)
         time.sleep(3600)
+
+def admin_create(users):
+    if not users.find_one({"name": "admin", "surname": "admin"}):
+        add_admin = Auth(users)
+        add_admin.register("admin", "admin",admin_mail, admin_password)
+
 
 
 if __name__ == '__main__':
