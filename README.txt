@@ -15,6 +15,12 @@ Bu proje, bir kütüphane yönetim sistemi geliştirme amacıyla hazırlanmışt
 
 -Projede kullanılan kütüphaneler ve sürümleri requirements.txt dosyasındadır
 
-Admin bilgileri
-email: lib.yonetim@gmail.com 
-şifre: Stat.py2024
+-Bu proje, gizli bilgilerin güvenli bir şekilde saklanması için bir `.env` dosyasına ihtiyaç duyar. Projeyi çalıştırmadan önce aşağıdaki adımları izleyerek `.env` dosyasını oluşturun:
+
+-Proje klasöründe bir `.env` dosyası oluşturun ve içine aşağıdaki bilgileri girin:
+
+```plaintext
+EMAIL=<E-postanızı buraya yazın>
+PASSWORD=<E-posta şifrenizi buraya yazın>
+MONGO_URI=<MongoDB bağlantı URL'nizi buraya yazın>
+ADMİN_PASSWORD=<Admin girişi için şifre>
