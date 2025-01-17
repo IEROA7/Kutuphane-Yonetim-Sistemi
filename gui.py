@@ -9,6 +9,13 @@ import auth
 from add_remove import BookInsert, BookRemove
 import date_system
 import mail_system
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
+
+admin_mail = os.getenv("EMAIL")
 
 class LibraryApp:
     def __init__(self,books, users, master):
@@ -271,7 +278,7 @@ class LibraryApp:
 
         # Giriş başarılıysa kitaplık sayfasını göster
 
-        if login_try == "giriş başarılı" and email == "lib.yonetim@gmail.com":
+        if login_try == "giriş başarılı" and email == admin_mail:
             self.clear_frame()
             self.setup_admin_tabs(active_tab="library")  # Admin sekmeleri göster
             self.show_library_section()  # Varsayılan olarak Kütüphane Yönetimi sekmesi açık
